@@ -34,18 +34,22 @@ async function printMemos(memos) {
 }
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;
-  const unlockTime = currentTimestampInSeconds + ONE_YEAR_IN_SECS;
+// Get example accounts.
+// Get the contract to deploy.
 
-  const lockedAmount = hre.ethers.utils.parseEther("1");
+// Deploy contract.
 
-  const Lock = await hre.ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+// Check balances ebfore the coffee purchases.
 
-  await lock.deployed();
+// Buy the owner a few coffees.
 
-  console.log("Lock with 1 ETH deployed to:", lock.address);
+// Check balances after coffee purchases.
+
+// Withdraw funds.
+
+// Check balance after withdraw.
+
+// Read all the memos left for the owner. 
 }
 
 // We recommend this pattern to be able to use async/await everywhere
