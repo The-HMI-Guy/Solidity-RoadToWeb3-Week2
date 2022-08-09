@@ -8,12 +8,14 @@ const hre = require("hardhat");
 
 // Returns the Ether balance of a given address.
 async function getBalance(address) {
-  const balanceBigInt = await hre.waffle.provider.getBalance(address);
+  // Switch out Waffle to Ethers
+  const balanceBigInt = await hre.ethers.provider.getBalance(address);
+  // const balanceBigInt = await hre.waffle.provider.getBalance(address);
   return hre.ethers.utils.formatEther(balanceBigInt);
 }
 
 // Logs the Ether balances for a list of addresses
-async function printBalances(address) {
+async function printBalances(addresses) {
   let idx = 0;
   for (const address of addresses) {
     console.log(`Adress ${idx} balance: `, await getBalance(address));
@@ -35,11 +37,17 @@ async function printMemos(memos) {
 
 async function main() {
 // Get example accounts.
-// Get the contract to deploy.
+const [owner, tipper, tipper2, tipper3] = await hre.ethers.getSigners();
+// Get the contract to deploy and deploy.
+const BuyMeACoffee = await hre.ethers.getContractFactory("BuyMeACoffee");
+const buyMeACoffee = await BuyMeACoffee.deploy();
+await buyMeACoffee.deployed();
+console.log("BuyMeACoffee deployed to ", buyMeACoffee.address);
 
-// Deploy contract.
-
-// Check balances ebfore the coffee purchases.
+// Check balances before the coffee purchases.
+const addresses = [owner.address, tipper.address, buyMeACoffee.address];
+console.log("== start ==");
+await printBalances(addresses);
 
 // Buy the owner a few coffees.
 
