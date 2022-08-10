@@ -1,5 +1,3 @@
-//const { config } = require("hardhat");
-
 require("@nomicfoundation/hardhat-toolbox");
 require("@nomicfoundation/hardhat-chai-matchers");
 require("@nomiclabs/hardhat-ethers");
@@ -14,7 +12,7 @@ module.exports = {
   networks: {
     goerli: {
       url: GOERLI_URL,
-      accounts: [PRIVATE_KEY]
-    }
-  }
+      accounts: [PRIVATE_KEY],
+    },
+  },
 };
