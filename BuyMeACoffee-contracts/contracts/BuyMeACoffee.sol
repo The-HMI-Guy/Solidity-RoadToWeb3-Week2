@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
+// Deployed to Goerli at 0x59AE2a145b8245863875CF83D00D834Fe77f7eF6
+
 // Import this file to use console.log
 import "../node_modules/hardhat/console.sol";
 
