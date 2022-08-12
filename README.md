@@ -1,4 +1,4 @@
-# Road To Web3 - Week 1
+# Road To Web3 - Week 2
 
 # How to build "Buy Me a Coffee" DeFi Dapp (Solidity, Hardhat, Ethers.js, Alchemy)
 
