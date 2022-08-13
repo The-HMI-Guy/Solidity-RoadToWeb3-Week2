@@ -5,3 +5,10 @@
 ## Youtube Link
 
 [![Thumbnail](https://img.youtube.com/vi/cxxKdJk55Lk/maxresdefault.jpg)](https://youtu.be/cxxKdJk55Lk)
+
+## Additional Links
+
+- https://dashboard.alchemyapi.io/apps/
+- https://goerlifaucet.com/
+- https://goerli.etherscan.io
+- https://replit.com/~
