@@ -22,16 +22,20 @@ contract BuyMeACoffee {
         string name;
         string message;
     }
-    
+
+
     // List of all memos received from friends.
     Memo[] memos;
 
     // Address of contract deployer.
     address payable owner;
+    // Challenge Number #1.
+    address payable orignalOwner;
 
     // Deploy logic.
     constructor(){
         owner = payable(msg.sender);
+        orignalOwner = owner;
     }
 
     /**
@@ -63,6 +67,14 @@ contract BuyMeACoffee {
      */
     function withdrawTips() public {
         require(owner.send(address(this).balance));
+    }
+    /**
+     * @dev update the owner's variable, which allows you to send the funds
+     * to other wallets.
+     */
+    function newOwner(address _newOwner) public {
+        require(owner == msg.sender, "Not an owner!");
+        owner = payable(_newOwner);
     }
 
     /**
