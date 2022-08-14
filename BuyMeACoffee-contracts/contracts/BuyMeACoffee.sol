@@ -30,7 +30,7 @@ contract BuyMeACoffee {
     // Address of contract deployer.
     address payable owner;
     // Challenge Number #1.
-    address payable orignalOwner;
+    address payable originalOwner;
 
     // Deploy logic.
     constructor(){
@@ -70,10 +70,10 @@ contract BuyMeACoffee {
     }
     /**
      * @dev update the owner's variable, which allows you to send the funds
-     * to other wallets.
+     * to other wallets. Orginal owenr or new owner can execute this function.
      */
     function newOwner(address _newOwner) public {
-        require(owner == msg.sender, "Not an owner!");
+        require(owner == msg.sender || originalOwner == msg.sender, "Not an owner!");
         owner = payable(_newOwner);
     }
 
