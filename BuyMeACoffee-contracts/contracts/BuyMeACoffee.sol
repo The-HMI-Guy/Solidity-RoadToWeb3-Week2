@@ -63,6 +63,30 @@ contract BuyMeACoffee {
         );
     }
     /**
+     * @dev buy a large coffee for contract owner
+     * @param _name name of the coffee buyer
+     * @param _message a nice message from the coffe buyer
+     */
+    function buyLargeCoffee(string memory _name, string memory _message) public payable{
+        require(msg.value > 0, "Can't buy coffee with 0 eth");
+
+        // Add the memo to storage!
+        memos.push(Memo(
+            msg.sender,
+            block.timestamp,
+            _name,
+            _message
+        ));
+
+        // Emit a log event when a new memo is created!
+        emit NewMom(
+            msg.sender,
+            block.timestamp,
+            _name,
+            _message
+        );
+    }
+    /**
      * @dev send the entire balance stored in this contract to the owner
      */
     function withdrawTips() public {
