@@ -35,7 +35,7 @@ contract BuyMeACoffee {
     // Deploy logic.
     constructor(){
         owner = payable(msg.sender);
-        orignalOwner = owner;
+        originalOwner = owner;
     }
 
     /**
